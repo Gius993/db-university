@@ -15,4 +15,4 @@ SELECT *
 
 SELECT *
    FROM `students`
-   WHERE `date_of_birth` < '1991-01-11';
+   WHERE `date_of_birth` < '1992-01-11';
