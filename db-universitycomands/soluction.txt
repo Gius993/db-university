@@ -1,3 +1,6 @@
+// Query con SELECT
+
+
 1. Selezionare tutti gli studenti nati nel 1990 (160)
 
 SELECT *
@@ -16,3 +19,47 @@ SELECT *
 SELECT *
    FROM `students`
    WHERE `date_of_birth` < '1992-01-11';
+
+   4. Selezionare tutti i corsi del primo semestre del primo anno di un qualsiasi corso di
+      laurea (286)
+
+SELECT `period`, `year`
+   FROM `courses`
+   WHERE `period` LIKE 'I semestre' 
+   AND `year` LIKE '1';
+
+   6. Selezionare tutti i corsi di laurea magistrale (38)
+ 
+ SELECT *
+	FROM `degrees`
+	WHERE `level` LIKE 'magistrale';
+
+7. Da quanti dipartimenti è composta l'università? (12)
+
+SELECT COUNT(*) AS `totale`
+   FROM `departments`;
+
+
+8. Quanti sono gli insegnanti che non hanno un numero di telefono? (50)
+
+SELECT COUNT(*) AS `totale`
+   FROM `teachers`
+   WHERE `phone` IS null;
+
+
+
+
+/**************************************Query con GROUP BY***********************************************/
+
+2. Contare gli insegnanti che hanno l'ufficio nello stesso edificio
+
+SELECT COUNT(`office_address`) AS `totali`, office_address AS `Indirizzo`
+   FROM `teachers`
+   GROUP BY `office_address`;
+
+  4. Contare quanti corsi di laurea ci sono per ogni dipartimento
+
+  SELECT COUNT(*), `department_id` AS `dipartimento`
+   FROM `degrees`
+   GROUP BY `department_id`
+
